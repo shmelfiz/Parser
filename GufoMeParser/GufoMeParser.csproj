@@ -58,15 +58,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Classes\Parser.cs" />
-    <Compile Include="Core\Interfaces\IParser.cs" />
+    <Compile Include="Core\Selenium\Classes\SeleniumWorker.cs" />
+    <Compile Include="Core\Selenium\Interfaces\IWorker.cs" />
+    <Compile Include="Core\Selenium\SeleniumWorkerCommonBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".dockerignore">
+      <DependentUpon>Dockerfile</DependentUpon>
+    </None>
     <None Include="App.config" />
+    <None Include="Dockerfile" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Core\Agility\Classes\" />
+    <Folder Include="Core\Agility\Interfaces\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
