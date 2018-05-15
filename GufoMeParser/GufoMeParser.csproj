@@ -58,9 +58,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Selenium\Classes\BaseClasses\Base.cs" />
     <Compile Include="Core\Selenium\Classes\SeleniumWorker.cs" />
     <Compile Include="Core\Selenium\Interfaces\IWorker.cs" />
-    <Compile Include="Core\Selenium\SeleniumWorkerCommonBase.cs" />
+    <Compile Include="Core\Selenium\Classes\BaseClasses\SeleniumWorkerCommonBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

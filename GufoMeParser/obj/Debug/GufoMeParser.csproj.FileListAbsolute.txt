@@ -12,3 +12,17 @@ c:\users\дмитрий\documents\visual studio 2017\Projects\GufoMeParser\GufoM
 c:\users\дмитрий\documents\visual studio 2017\Projects\GufoMeParser\GufoMeParser\obj\Debug\GufoMeParser.csprojResolveAssemblyReference.cache
 c:\users\дмитрий\documents\visual studio 2017\Projects\GufoMeParser\GufoMeParser\obj\Debug\GufoMeParser.exe
 c:\users\дмитрий\documents\visual studio 2017\Projects\GufoMeParser\GufoMeParser\obj\Debug\GufoMeParser.pdb
+C:\Users\Дмитрий\Documents\Visual Studio 2017\Projects\GufoMeParser\Parser\GufoMeParser\bin\Debug\GufoMeParser.exe.config
+C:\Users\Дмитрий\Documents\Visual Studio 2017\Projects\GufoMeParser\Parser\GufoMeParser\bin\Debug\GufoMeParser.exe
+C:\Users\Дмитрий\Documents\Visual Studio 2017\Projects\GufoMeParser\Parser\GufoMeParser\bin\Debug\GufoMeParser.pdb
+C:\Users\Дмитрий\Documents\Visual Studio 2017\Projects\GufoMeParser\Parser\GufoMeParser\bin\Debug\Castle.Core.dll
+C:\Users\Дмитрий\Documents\Visual Studio 2017\Projects\GufoMeParser\Parser\GufoMeParser\bin\Debug\Castle.Windsor.dll
+C:\Users\Дмитрий\Documents\Visual Studio 2017\Projects\GufoMeParser\Parser\GufoMeParser\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Дмитрий\Documents\Visual Studio 2017\Projects\GufoMeParser\Parser\GufoMeParser\bin\Debug\WebDriver.dll
+C:\Users\Дмитрий\Documents\Visual Studio 2017\Projects\GufoMeParser\Parser\GufoMeParser\bin\Debug\Castle.Windsor.xml
+C:\Users\Дмитрий\Documents\Visual Studio 2017\Projects\GufoMeParser\Parser\GufoMeParser\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\Дмитрий\Documents\Visual Studio 2017\Projects\GufoMeParser\Parser\GufoMeParser\bin\Debug\HtmlAgilityPack.xml
+C:\Users\Дмитрий\Documents\Visual Studio 2017\Projects\GufoMeParser\Parser\GufoMeParser\bin\Debug\WebDriver.xml
+C:\Users\Дмитрий\Documents\Visual Studio 2017\Projects\GufoMeParser\Parser\GufoMeParser\obj\Debug\GufoMeParser.csprojResolveAssemblyReference.cache
+C:\Users\Дмитрий\Documents\Visual Studio 2017\Projects\GufoMeParser\Parser\GufoMeParser\obj\Debug\GufoMeParser.exe
+C:\Users\Дмитрий\Documents\Visual Studio 2017\Projects\GufoMeParser\Parser\GufoMeParser\obj\Debug\GufoMeParser.pdb

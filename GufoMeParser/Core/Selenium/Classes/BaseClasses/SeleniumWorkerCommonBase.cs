@@ -10,14 +10,20 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Opera;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
+using GufoMeParser.Core.Selenium.Classes.BaseClasses;
 
-namespace GufoMeParser.Core.Selenium
+namespace GufoMeParser.Core.Selenium.Classes
 {
-    abstract class SeleniumWorkerCommonBase : IDisposable
+    class SeleniumWorkerCommonBase : Base, IDisposable
     {
         private IWebDriver _driver { get; set; }
 
-        public virtual IWebDriver GetDriver(string name, string path)
+        public override void Click(string xpath, IWebDriver driver)
+        {
+            IWebElement query = driver.FindElement(By.Name("q"));
+        }
+
+        public override IWebDriver GetDriver(string name, string path)
         {
             switch (name)
             {
