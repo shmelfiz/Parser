@@ -8,53 +8,53 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using HtmlAgilityPack;
+using GufoMeParser.FileSaving;
+using GufoMeParser.Core.Agility.Interfaces;
+using GufoMeParser.Core.Agility.Classes;
+using System.Threading;
 
 namespace GufoMeParser
 {
     class Program
     {
+        public static IParserCreator ParserCreator{ get; set;}
+        public static IFileSaverCreator FileSaver { get; set; }
+
         static void Main(string[] args)
         {
-           /* using (IWebDriver driver = new ChromeDriver("C:\\Users\\Дмитрий\\Desktop\\"))
-            {*/
-                var driver = new ChromeDriver("C:\\Users\\Дмитрий\\Desktop\\");
-                //Notice navigation is slightly different than the Java version
-                //This is because 'get' is a keyword in C#
-                driver.Navigate().GoToUrl("https://gufo.me/dict/ozhegov/а");
+            ParserCreator = new ParserCreator();
+            FileSaver = new FileSaverCreator();
 
-            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            var parser = ParserCreator.GetParser();
+            var fileSaver = FileSaver.GetFileSaver();
 
-            var url = "https://gufo.me/dict/ozhegov/а";
-            var web = new HtmlWeb();
-            var doc = web.Load(url);
+            var urls = new List<string> { "https://gufo.me/dict/ozhegov/%D0%B0" };
+            var parsing = true;
+            var wordsCount = 0L;
 
-            var value = doc.DocumentNode
-.SelectNodes("//article")
-.First().InnerText;
+            Console.WriteLine("Processing!");
 
+            while (parsing)
+            {
+                wordsCount++;
+                var currentWord = parser.GetPageName(urls.LastOrDefault());
+                Console.WriteLine(currentWord);
 
-            //var parse = doc.
+                fileSaver.Save(parser.GetParsedTxt(urls.LastOrDefault()), currentWord).Wait();
 
-            // Find the text input element by its name
-            // driver.FindElementByXPath("//div[@class='col text-right']/child::a/@href").Click();
-            driver.FindElementByXPath("//div[@class='col text-right']/child::a").Click();
-            //query.Submit();
-            Console.WriteLine(value);
-            Console.ReadKey();
-            // Enter something to search for
-            //query.SendKeys("Cheese");
+                var nextUrl = parser.GetNextUrl(urls.LastOrDefault());
 
-            // Now submit the form. WebDriver will find the form for us from the element
-            //query.Submit();
+                if(nextUrl.Contains("Complete!"))
+                {
+                    Console.WriteLine(nextUrl + " Words count: " + wordsCount.ToString() + ".");
+                    Console.ReadKey();
+                    parsing = false;
+                }
 
-            // Google's search is rendered dynamically with JavaScript.
-            // Wait for the page to load, timeout after 10 seconds
-            //var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            //wait.Until(d => d.Title.StartsWith("cheese", StringComparison.OrdinalIgnoreCase));
+                urls.Add(nextUrl);
 
-            // Should see: "Cheese - Google Search" (for an English locale)
-            Console.WriteLine("Page title is: " + driver.Title);
-           // }
+                Thread.Sleep(1000);
+            }
         }
     }
 }

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GufoMeParser.Core.Selenium.Interfaces
+namespace GufoMeParser.Core.Agility.Interfaces
 {
-    interface IWorker
+    interface IParserCreator
     {
-        void DoWork();
+        IParser GetParser();
     }
 }

@@ -58,10 +58,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Selenium\Classes\BaseClasses\Base.cs" />
-    <Compile Include="Core\Selenium\Classes\SeleniumWorker.cs" />
-    <Compile Include="Core\Selenium\Interfaces\IWorker.cs" />
-    <Compile Include="Core\Selenium\Classes\BaseClasses\SeleniumWorkerCommonBase.cs" />
+    <Compile Include="Core\Agility\Classes\Parser.cs" />
+    <Compile Include="Core\Agility\Classes\ParserCreator.cs" />
+    <Compile Include="Core\Agility\Interfaces\IParser.cs" />
+    <Compile Include="Core\Agility\Interfaces\IParserCreator.cs" />
+    <Compile Include="FileSaving\FileSaver.cs" />
+    <Compile Include="FileSaving\FileSaverCreator.cs" />
+    <Compile Include="FileSaving\IFileSaver.cs" />
+    <Compile Include="FileSaving\IFileSaverCreator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -74,8 +78,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Core\Agility\Classes\" />
-    <Folder Include="Core\Agility\Interfaces\" />
+    <Folder Include="SavedFiles\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
