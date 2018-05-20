@@ -7,7 +7,7 @@ using System.IO;
 
 namespace GufoMeParser.FileSaving
 {
-    class FileSaver : IFileSaver
+    public class FileSaver : IFileSaver
     {
         public Task Save(string text, string name)
         {

@@ -26,3 +26,25 @@ C:\Users\Дмитрий\Documents\Visual Studio 2017\Projects\GufoMeParser\Parse
 C:\Users\Дмитрий\Documents\Visual Studio 2017\Projects\GufoMeParser\Parser\GufoMeParser\obj\Debug\GufoMeParser.csprojResolveAssemblyReference.cache
 C:\Users\Дмитрий\Documents\Visual Studio 2017\Projects\GufoMeParser\Parser\GufoMeParser\obj\Debug\GufoMeParser.exe
 C:\Users\Дмитрий\Documents\Visual Studio 2017\Projects\GufoMeParser\Parser\GufoMeParser\obj\Debug\GufoMeParser.pdb
+E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\bin\Debug\GufoMeParser.exe.config
+E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\bin\Debug\GufoMeParser.exe
+E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\bin\Debug\GufoMeParser.pdb
+E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\bin\Debug\Castle.Core.dll
+E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\bin\Debug\Castle.Windsor.dll
+E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\bin\Debug\EntityFramework.dll
+E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\bin\Debug\EntityFramework.SqlServer.dll
+E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\bin\Debug\HtmlAgilityPack.dll
+E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\bin\Debug\MySql.Data.dll
+E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\bin\Debug\MySql.Data.Entity.EF6.dll
+E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\bin\Debug\Castle.Windsor.xml
+E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\bin\Debug\EntityFramework.xml
+E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\bin\Debug\EntityFramework.SqlServer.xml
+E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\bin\Debug\HtmlAgilityPack.pdb
+E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\bin\Debug\HtmlAgilityPack.xml
+E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\bin\Debug\MySql.Data.xml
+E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\bin\Debug\MySql.Data.Entity.EF6.xml
+E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\obj\Debug\GufoMeParser.csprojAssemblyReference.cache
+E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\obj\Debug\GufoMeParser.csproj.CoreCompileInputs.cache
+E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\obj\Debug\GufoMeParser.csproj.CopyComplete
+E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\obj\Debug\GufoMeParser.exe
+E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\obj\Debug\GufoMeParser.pdb

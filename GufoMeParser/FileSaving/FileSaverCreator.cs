@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GufoMeParser.FileSaving
 {
-    class FileSaverCreator : IFileSaverCreator
+    public class FileSaverCreator : IFileSaverCreator
     {
         public IFileSaver GetFileSaver()
         {
