@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GufoMeParser.Parsers.GufoMe.Interfaces
+﻿namespace GufoMeParser.Parsers.GufoMe.Interfaces
 {
     public interface IParser
     {
-        List<string> MainUrl { get; }
-
+        string MainUrl { get;}
+        string StockUrl { get; }
         string GetParsedTxt(string url);
 
         string GetNextUrl(string currentUrl);

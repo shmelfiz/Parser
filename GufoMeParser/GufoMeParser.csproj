@@ -82,6 +82,8 @@
     <Compile Include="DbRequesting\IRequest.cs" />
     <Compile Include="DbRequesting\IRequestManager.cs" />
     <Compile Include="DbRequesting\RequestManager.cs" />
+    <Compile Include="FileAndDirectoryDetecting\DirectoryDetector.cs" />
+    <Compile Include="FileAndDirectoryDetecting\FileDetector.cs" />
     <Compile Include="Parsers\GufoMe\Classes\GufoParser.cs" />
     <Compile Include="Parsers\GufoMe\Classes\ParserCreator.cs" />
     <Compile Include="Parsers\GufoMe\Interfaces\IParser.cs" />
@@ -92,6 +94,7 @@
     <Compile Include="FileSaving\IFileSaverCreator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".dockerignore">

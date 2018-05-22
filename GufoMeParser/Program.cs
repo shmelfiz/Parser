@@ -8,6 +8,7 @@ using GufoMeParser.Parsers.GufoMe.Classes;
 using System.Threading;
 using GufoMeParser.Core;
 using GufoMeParser.DbRequesting;
+using GufoMeParser.FileAndDirectoryDetecting;
 
 namespace GufoMeParser
 {
@@ -35,11 +36,13 @@ namespace GufoMeParser
 
         private static void RunParser(IParser parser, IFileSaver fileSaver, IRequest request)
         {
-            var urls = parser.MainUrl;
             var parsing = true;
             var wordsCount = 0L;
+            List<string> urls = new List<string> { parser.MainUrl };
 
             Console.WriteLine("Processing!");
+
+            CheckCurrentDirectory(parser, urls);
 
             while (parsing)
             {
@@ -50,7 +53,9 @@ namespace GufoMeParser
 
                 Console.WriteLine(currentWord);
 
-                fileSaver.Save(parsedTxt, currentWord).Wait();
+                fileSaver.Save(parsedTxt, currentWord, (int)Resources.ParsedTxt).Wait();
+                fileSaver.Save(parsedHtml, currentWord, (int)Resources.ParsedHtml).Wait();
+
                 request.SendDataAsync(currentWord, parsedTxt, parsedHtml);
 
                 var nextUrl = parser.GetNextUrl(urls.LastOrDefault());
@@ -65,6 +70,14 @@ namespace GufoMeParser
                 urls.Add(nextUrl);
 
                 Thread.Sleep(1000);
+            }
+        }
+
+        private static void CheckCurrentDirectory(IParser parser, List<string> urls)
+        {
+            if (DirectoryDetector.IsExists((int)Resources.ParsedTxt))
+            {
+                urls.Add(parser.StockUrl + FileDetector.GetLastFileName(DirectoryDetector.GetPath((int)Resources.ParsedTxt)));
             }
         }
     }

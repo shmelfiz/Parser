@@ -1,16 +1,14 @@
 ﻿using GufoMeParser.Parsers.GufoMe.Interfaces;
 using HtmlAgilityPack;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace GufoMeParser.Parsers.GufoMe.Classes
 {
     public class GufoParser : IParser
     {
-        public List<string> MainUrl => new List<string> { "https://gufo.me/dict/ozhegov/%D0%B0" };
+        public string MainUrl => "https://gufo.me/dict/ozhegov/%D0%B0";
+        public string StockUrl => "https://gufo.me/dict/ozhegov/";
 
         public string GetParsedTxt(string url)
         {
@@ -70,10 +68,18 @@ namespace GufoMeParser.Parsers.GufoMe.Classes
         {
             var web = new HtmlWeb();
             var page = web.Load(url);
+            var parsedHtml = new StringBuilder();
 
-            var parsedHtml = page.ToString();
+            var parsedHtmlSplitted = page.DocumentNode
+                .SelectNodes("//p")
+                .Select(x => x.OuterHtml);
 
-            return parsedHtml;
+            foreach(string parsedNode in parsedHtmlSplitted)
+            {
+                parsedHtml.Append(parsedNode);
+            }
+
+            return parsedHtml.ToString(); ;
         }
     }
 }

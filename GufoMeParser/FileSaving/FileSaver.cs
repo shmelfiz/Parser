@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
@@ -9,9 +7,12 @@ namespace GufoMeParser.FileSaving
 {
     public class FileSaver : IFileSaver
     {
-        public Task Save(string text, string name)
+        private string _parsedTxtPath = Directory.GetCurrentDirectory() + "\\SavedFiles";
+        private string _parsedHtmlPath = Directory.GetCurrentDirectory() + "\\SavedFilesHtml";
+
+        public Task Save(string text, string name, int fileType)
         {
-            return WriteTextAsync(GetPath(name), text);
+            return WriteTextAsync(GetCreatedPath(name, fileType), text);
         }
 
         private async Task WriteTextAsync(string filePath, string text)
@@ -26,16 +27,34 @@ namespace GufoMeParser.FileSaving
             };
         }
 
-        private string GetPath(string name)
+        private string GetCreatedPath(string name, int fileType)
         {
-            var SavingDirectory = Directory.CreateDirectory(Directory.GetCurrentDirectory() + "\\SavedFiles");
-            var path = new StringBuilder();
-            path.Append(SavingDirectory);
-            path.Append("\\");
-            path.Append(name);
-            path.Append(".txt");
+            switch (fileType)
+            {
+                case (int)Resources.ParsedTxt:
+                    {
+                        var savingDirectory = Directory.CreateDirectory(_parsedTxtPath);
+                        var path = new StringBuilder();
+                        path.Append(savingDirectory);
+                        path.Append("\\");
+                        path.Append(name);
+                        path.Append(".txt");
 
-            return path.ToString();
+                        return path.ToString();
+                    }
+                case (int)Resources.ParsedHtml:
+                    {
+                        var savingDirectory = Directory.CreateDirectory(_parsedHtmlPath);
+                        var path = new StringBuilder();
+                        path.Append(savingDirectory);
+                        path.Append("\\");
+                        path.Append(name);
+                        path.Append(".txt");
+
+                        return path.ToString();
+                    }
+            }
+            throw new Exception("U r wrote wrong type of file!");
         }
     }
 }
