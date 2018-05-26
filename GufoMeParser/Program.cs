@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 
 using GufoMeParser.FileSaving;
-using GufoMeParser.Parsers.GufoMe.Interfaces;
+using GufoMeParser.Parsers.Interfaces;
 using GufoMeParser.Parsers.GufoMe.Classes;
 using System.Threading;
 using GufoMeParser.Core;
 using GufoMeParser.DbRequesting;
 using GufoMeParser.CheckObjects;
+using GufoMeParser.Parsers.EnAcademic.Classes;
 
 namespace GufoMeParser
 {
@@ -21,9 +22,8 @@ namespace GufoMeParser
         static void Main(string[] args)
         {
             InitializeIoC();
-            var parser = ParserCreator.GetParser<GufoParser>();
-            var fileSaver = FileSaver.GetFileSaver();
-            var request = DbRequestManager.GetRequest<DescrRuRequest>();
+
+            InitializeParser(out IParser parser, out IFileSaver fileSaver, out IRequest request);
 
             RunParser(parser, fileSaver, request);
         }
@@ -32,6 +32,39 @@ namespace GufoMeParser
             ParserCreator = Container.Resolve<IParserCreator>();
             FileSaver = Container.Resolve<IFileSaverCreator>();
             DbRequestManager = Container.Resolve<IRequestManager>();
+        }
+
+        private static void InitializeParser(out IParser parser, out IFileSaver fileSaver, out IRequest request)
+        {
+            parser = null;
+            fileSaver = null;
+            request = null;
+
+            Console.Write("Type \"Gufo\" or \"EnAcademic\": ");
+            var nameOfParser = Console.ReadLine().ToLower();
+
+            switch (nameOfParser)
+            {
+                case "gufo":
+                    {
+                        parser = ParserCreator.GetParser<GufoParser>();
+                        fileSaver = FileSaver.GetFileSaver();
+                        request = DbRequestManager.GetRequest<DescrRuRequest>();
+                        return;
+                    }
+                case "enacademic":
+                    {
+                        parser = ParserCreator.GetParser<GufoParser>();
+                        fileSaver = FileSaver.GetFileSaver();
+                        request = DbRequestManager.GetRequest<DescrRuRequest>();
+                        return;
+                    }
+            }
+
+            if(parser == null)
+            {
+                throw new Exception("Некорректный тип!");
+            }
         }
 
         private static void RunParser(IParser parser, IFileSaver fileSaver, IRequest request)

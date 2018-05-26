@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-using GufoMeParser.Parsers.GufoMe.Interfaces;
+using GufoMeParser.Parsers.Interfaces;
 
 namespace GufoMeParser.CheckObjects
 {

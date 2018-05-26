@@ -1,4 +1,4 @@
-﻿using GufoMeParser.Parsers.GufoMe.Interfaces;
+﻿using GufoMeParser.Parsers.Interfaces;
 using HtmlAgilityPack;
 using System;
 using System.Linq;

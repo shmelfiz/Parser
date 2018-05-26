@@ -48,3 +48,7 @@ E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\obj\Debug\GufoMePars
 E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\obj\Debug\GufoMeParser.exe
 E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\obj\Debug\GufoMeParser.pdb
 E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\obj\Debug\GufoMeParser.csprojAssemblyReference.cache
+E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\bin\Debug\GufoMeParser.exe.manifest
+E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\bin\Debug\GufoMeParser.application
+E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\obj\Debug\GufoMeParser.exe.manifest
+E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\obj\Debug\GufoMeParser.application
