@@ -8,7 +8,7 @@ using GufoMeParser.Parsers.GufoMe.Classes;
 using System.Threading;
 using GufoMeParser.Core;
 using GufoMeParser.DbRequesting;
-using GufoMeParser.FileAndDirectoryDetecting;
+using GufoMeParser.CheckObjects;
 
 namespace GufoMeParser
 {
@@ -40,9 +40,11 @@ namespace GufoMeParser
             var wordsCount = 0L;
             List<string> urls = new List<string> { parser.MainUrl };
 
-            Console.WriteLine("Processing!");
+            Console.WriteLine("If u wanna start from main url, type \"continue\".");
+            Console.WriteLine("For the exit press \"Ctrl + C\".");
+            CheckTypedTxt.CheckWroteByUserLink(urls, parser);
 
-            CheckCurrentDirectory(parser, urls);
+            Console.WriteLine("Processing!");
 
             while (parsing)
             {
@@ -51,33 +53,28 @@ namespace GufoMeParser
                 var parsedTxt = parser.GetParsedTxt(urls.LastOrDefault());
                 var parsedHtml = parser.GetParsedHtml(urls.LastOrDefault());
 
-                Console.WriteLine(currentWord);
-
                 fileSaver.Save(parsedTxt, currentWord, (int)Resources.ParsedTxt).Wait();
                 fileSaver.Save(parsedHtml, currentWord, (int)Resources.ParsedHtml).Wait();
 
                 request.SendDataAsync(currentWord, parsedTxt, parsedHtml);
 
                 var nextUrl = parser.GetNextUrl(urls.LastOrDefault());
-
-                if (nextUrl.Contains("Complete!"))
-                {
-                    Console.WriteLine(nextUrl + " Words count: " + wordsCount.ToString() + ".");
-                    Console.ReadKey();
-                    parsing = false;
-                }
+                fileSaver.Save(nextUrl, "Links", (int)Resources.ParsedLink).Wait();
 
                 urls.Add(nextUrl);
 
+                Console.WriteLine(currentWord);
+                Console.CancelKeyPress += Cancel;
+
                 Thread.Sleep(1000);
             }
-        }
+        }       
 
-        private static void CheckCurrentDirectory(IParser parser, List<string> urls)
+        private static void Cancel(object sender, ConsoleCancelEventArgs args)
         {
-            if (DirectoryDetector.IsExists((int)Resources.ParsedTxt))
+            if(args.Cancel)
             {
-                urls.Add(parser.StockUrl + FileDetector.GetLastFileName(DirectoryDetector.GetPath((int)Resources.ParsedTxt)));
+                Environment.Exit(0);
             }
         }
     }

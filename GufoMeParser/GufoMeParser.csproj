@@ -74,6 +74,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckObjects\CheckTypedTxt.cs" />
     <Compile Include="Core\Container.cs" />
     <Compile Include="Core\Db\IRepository.cs" />
     <Compile Include="Core\Db\MySQL\MySQLContext.cs" />

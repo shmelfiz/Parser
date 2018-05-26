@@ -1,11 +1,21 @@
-﻿using System;
+﻿using GufoMeParser.Parsers.GufoMe.Interfaces;
+using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace GufoMeParser.FileAndDirectoryDetecting
 {
     public static class DirectoryDetector
     {
-        public static bool IsExists(int fileType)
+        public static void CheckCurrentDirectory(IParser parser, List<string> urls)
+        {
+            if (IsExists((int)Resources.ParsedTxt))
+            {
+                urls.Add(parser.StockUrl + FileDetector.GetLastFileName(GetPath((int)Resources.ParsedTxt)));
+            }
+        }
+
+        private static bool IsExists(int fileType)
         {
             switch (fileType)
             {

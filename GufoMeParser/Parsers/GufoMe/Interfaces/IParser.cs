@@ -5,11 +5,8 @@
         string MainUrl { get;}
         string StockUrl { get; }
         string GetParsedTxt(string url);
-
         string GetNextUrl(string currentUrl);
-
         string GetPageName(string url);
-
         string GetParsedHtml(string url);
 
     }

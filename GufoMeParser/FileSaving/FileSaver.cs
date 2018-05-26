@@ -9,6 +9,7 @@ namespace GufoMeParser.FileSaving
     {
         private string _parsedTxtPath = Directory.GetCurrentDirectory() + "\\SavedFiles";
         private string _parsedHtmlPath = Directory.GetCurrentDirectory() + "\\SavedFilesHtml";
+        private string _parsedLinkPath = Directory.GetCurrentDirectory() + "\\LinksFile";
 
         public Task Save(string text, string name, int fileType)
         {
@@ -45,6 +46,17 @@ namespace GufoMeParser.FileSaving
                 case (int)Resources.ParsedHtml:
                     {
                         var savingDirectory = Directory.CreateDirectory(_parsedHtmlPath);
+                        var path = new StringBuilder();
+                        path.Append(savingDirectory);
+                        path.Append("\\");
+                        path.Append(name);
+                        path.Append(".txt");
+
+                        return path.ToString();
+                    }
+                case (int)Resources.ParsedLink:
+                    {
+                        var savingDirectory = Directory.CreateDirectory(_parsedLinkPath);
                         var path = new StringBuilder();
                         path.Append(savingDirectory);
                         path.Append("\\");

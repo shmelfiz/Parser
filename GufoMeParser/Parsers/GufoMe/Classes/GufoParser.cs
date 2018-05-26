@@ -1,5 +1,6 @@
 ﻿using GufoMeParser.Parsers.GufoMe.Interfaces;
 using HtmlAgilityPack;
+using System;
 using System.Linq;
 using System.Text;
 
@@ -7,7 +8,7 @@ namespace GufoMeParser.Parsers.GufoMe.Classes
 {
     public class GufoParser : IParser
     {
-        public string MainUrl => "https://gufo.me/dict/ozhegov/%D0%B0";
+        public string MainUrl => "https://gufo.me/dict/ozhegov/а";
         public string StockUrl => "https://gufo.me/dict/ozhegov/";
 
         public string GetParsedTxt(string url)
@@ -30,7 +31,7 @@ namespace GufoMeParser.Parsers.GufoMe.Classes
         {
             if(currentUrl.Contains("%D1%8F%D1%89%D1%83%D1%80"))
             {
-                return "Complete!";
+                return "Complete!";  //костылец
             }
 
             var parsedUrlDirty = GetWebPage(currentUrl)
@@ -38,6 +39,7 @@ namespace GufoMeParser.Parsers.GufoMe.Classes
                 .Select(x => x.Attributes.FirstOrDefault()).FirstOrDefault();
 
             var parsedUrl = new StringBuilder();
+            parsedUrl.Append("\n");
             parsedUrl.Append("https://gufo.me");
             parsedUrl.Append(parsedUrlDirty.Value);
 
@@ -46,14 +48,22 @@ namespace GufoMeParser.Parsers.GufoMe.Classes
 
         public string GetPageName(string url)
         {
-            var parsedNameDirty = GetWebPage(url)
-                 .DocumentNode.SelectNodes("//h1")
-                 .Select(x => x.InnerText).FirstOrDefault();
+            try
+            {
+                var parsedNameDirty = GetWebPage(url)
+                     .DocumentNode.SelectNodes("//h1")
+                     .Select(x => x.InnerText).FirstOrDefault();
 
-            var parsedName = new StringBuilder();
-            parsedName.Append(parsedNameDirty);
+                var parsedName = new StringBuilder();
+                parsedName.Append(parsedNameDirty);
 
-            return parsedName.ToString();
+
+                return parsedName.ToString();
+            }
+            catch
+            {
+                throw new Exception("This ip was banned! Wait for 10 minutes and try again from last link in \"Links.txt\".");
+            }
         }
 
         private HtmlDocument GetWebPage(string url)

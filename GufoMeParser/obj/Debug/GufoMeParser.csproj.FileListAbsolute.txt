@@ -43,8 +43,8 @@ E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\bin\Debug\HtmlAgilit
 E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\bin\Debug\HtmlAgilityPack.xml
 E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\bin\Debug\MySql.Data.xml
 E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\bin\Debug\MySql.Data.Entity.EF6.xml
-E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\obj\Debug\GufoMeParser.csprojAssemblyReference.cache
 E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\obj\Debug\GufoMeParser.csproj.CoreCompileInputs.cache
 E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\obj\Debug\GufoMeParser.csproj.CopyComplete
 E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\obj\Debug\GufoMeParser.exe
 E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\obj\Debug\GufoMeParser.pdb
+E:\Programming\C#\Projects\ParserGufoMe\Parser\GufoMeParser\obj\Debug\GufoMeParser.csprojAssemblyReference.cache

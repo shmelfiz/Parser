@@ -8,7 +8,8 @@ namespace GufoMeParser
 {
     public enum Resources
     {
-        ParsedTxt = (int)1,
-        ParsedHtml = (int)2
+        ParsedTxt = 1,
+        ParsedHtml = 2,
+        ParsedLink = 3
     }
 }
