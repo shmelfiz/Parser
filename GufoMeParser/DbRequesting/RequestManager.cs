@@ -11,6 +11,11 @@ namespace GufoMeParser.DbRequesting
                 return new DescrRuRequest();
             }
 
+            if (typeof(T) == typeof(DescrEnRequest))
+            {
+                return new DescrEnRequest();
+            }
+
             throw new Exception("This name does't exist in the RequestManager!");
         }
     }

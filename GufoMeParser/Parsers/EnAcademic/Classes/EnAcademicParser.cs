@@ -9,15 +9,15 @@ namespace GufoMeParser.Parsers.EnAcademic.Classes
 {
     public class EnAcademicParser : IParser
     {
-        public string MainUrl => "http://terms_en.enacademic.com/2207";
+        public string MainUrl => "http://terms_en.enacademic.com/2205";
 
         public string StockUrl => "http://terms_en.enacademic.com/";
 
         public string GetParsedTxt(string url)
         {
             var parsedTxtDirty = GetWebPage(url)
-                .DocumentNode.SelectNodes("//dd/child::div/text()[4]")
-                .Select(x => x.InnerText);
+                .DocumentNode.SelectNodes("//meta[@name='Description']")
+                .Select(x => x.GetAttributeValue("Content", "false"));
 
             var parsedText = new StringBuilder();
 
@@ -42,7 +42,6 @@ namespace GufoMeParser.Parsers.EnAcademic.Classes
 
             var parsedUrl = new StringBuilder();
             parsedUrl.Append("\n");
-            //parsedUrl.Append("https://gufo.me");
             parsedUrl.Append(parsedUrlDirty.Value);
 
             return parsedUrl.ToString();
@@ -50,19 +49,19 @@ namespace GufoMeParser.Parsers.EnAcademic.Classes
 
         public string GetPageName(string url)
         {
-            //try
-            //{
+            try
+            {
                 var parsedNameDirty = GetWebPage(url).DocumentNode.SelectNodes("//dt").Select(x => x.InnerText).FirstOrDefault();
 
                 var parsedName = new StringBuilder();
                 parsedName.Append(parsedNameDirty);
 
                 return parsedName.ToString();
-            //}
-            //catch
-            //{
+            }
+            catch
+            {
                 throw new Exception("This ip was banned! Wait for 10 minutes and try again from last link in \"Links.txt\".");
-            //}
+            }
         }
 
         private HtmlDocument GetWebPage(string url)
@@ -80,7 +79,7 @@ namespace GufoMeParser.Parsers.EnAcademic.Classes
             var parsedHtml = new StringBuilder();
 
             var parsedHtmlSplitted = page.DocumentNode
-                .SelectNodes("//dd/child::div/text()[4]")
+                .SelectNodes("//dd")
                 .Select(x => x.OuterHtml);
 
             foreach (string parsedNode in parsedHtmlSplitted)

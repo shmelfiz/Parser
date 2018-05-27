@@ -43,6 +43,11 @@ namespace GufoMeParser
             Console.Write("Type \"Gufo\" or \"EnAcademic\": ");
             var nameOfParser = Console.ReadLine().ToLower();
 
+            if (!nameOfParser.ToLower().Contains("gufo") && !nameOfParser.ToLower().Contains("enacademic"))
+            {
+                throw new Exception("Typed name of name of parser is not support!");
+            }
+
             switch (nameOfParser)
             {
                 case "gufo":
@@ -54,17 +59,12 @@ namespace GufoMeParser
                     }
                 case "enacademic":
                     {
-                        parser = ParserCreator.GetParser<GufoParser>();
+                        parser = ParserCreator.GetParser<EnAcademicParser>();
                         fileSaver = FileSaver.GetFileSaver();
-                        request = DbRequestManager.GetRequest<DescrRuRequest>();
+                        request = DbRequestManager.GetRequest<DescrEnRequest>();
                         return;
                     }
-            }
-
-            if(parser == null)
-            {
-                throw new Exception("Некорректный тип!");
-            }
+            }           
         }
 
         private static void RunParser(IParser parser, IFileSaver fileSaver, IRequest request)
@@ -73,8 +73,6 @@ namespace GufoMeParser
             var wordsCount = 0L;
             List<string> urls = new List<string> { parser.MainUrl };
 
-            Console.WriteLine("If u wanna start from main url, type \"continue\".");
-            Console.WriteLine("For the exit press \"Ctrl + C\".");
             CheckTypedTxt.CheckWroteByUserLink(urls, parser);
 
             Console.WriteLine("Processing!");
@@ -93,6 +91,11 @@ namespace GufoMeParser
 
                 var nextUrl = parser.GetNextUrl(urls.LastOrDefault());
                 fileSaver.Save(nextUrl, "Links", (int)Resources.ParsedLink).Wait();
+
+                if(nextUrl.ToLower().Contains("complete"))
+                {
+                    parsing = false;
+                }
 
                 urls.Add(nextUrl);
 

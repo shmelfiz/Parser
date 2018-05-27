@@ -108,6 +108,7 @@
     <Compile Include="Core\Db\IRepository.cs" />
     <Compile Include="Core\Db\MySQL\MySQLContext.cs" />
     <Compile Include="Core\Db\MySQL\MySqlRepository.cs" />
+    <Compile Include="DbRequesting\DescrEnRequest.cs" />
     <Compile Include="DbRequesting\DescrRuRequest.cs" />
     <Compile Include="DbRequesting\IRequest.cs" />
     <Compile Include="DbRequesting\IRequestManager.cs" />
