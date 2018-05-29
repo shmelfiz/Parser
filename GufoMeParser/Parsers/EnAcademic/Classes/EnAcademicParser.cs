@@ -16,8 +16,10 @@ namespace GufoMeParser.Parsers.EnAcademic.Classes
         public string GetParsedTxt(string url)
         {
             var parsedTxtDirty = GetWebPage(url)
-                .DocumentNode.SelectNodes("//meta[@name='Description']")
-                .Select(x => x.GetAttributeValue("Content", "false"));
+                //.DocumentNode.SelectNodes("//meta[@name='Description']")
+                .DocumentNode.SelectNodes("//dd")
+                //.Select(x => x.GetAttributeValue("Content", "false"));
+                .Select(x => x.InnerText);
 
             var parsedText = new StringBuilder();
 
